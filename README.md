@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # BIOS 611 Project on World Happiness Report
 
 > The World Happiness Report ranks the happiness score of more than 150
