@@ -1,0 +1,39 @@
+---
+title: "BIOS611Project_Shih"
+author: "Pei Yu Shih"
+date: '2022-10-29'
+output: pdf_document
+---
+
+**Bar plots of happiness scores in selected countries in 2015 and 2016**\
+\
+![bar plots of happiness scores in selected countries in 2015 and 2016](figures/bar_yr1516.png) \newpage
+
+**Bar plots of happiness scores in selected countries in 2017 and 2018**\
+\
+![bar plots of happiness scores in selected countries in 2017 and 2018](figures/bar_yr1718.png) \newpage
+
+**Bar plots of happiness scores in selected countries in 2019 and 2020**\
+\
+![bar plots of happiness scores in selected countries in 2019 and 2020](figures/bar_yr1920.png) \newpage
+
+**Bar plots of happiness scores in selected countries in 2021 and 2022**\
+\
+![bar plots of happiness scores in selected countries in 2021 and 2022](figures/bar_yr2122.png) \newpage
+
+**Histogram of world happiness scores from 2015 to 2022**\
+\
+![histogram of world happiness scores from 2015 to 2022](figures/hist_yr1522.png) \newpage
+
+**Average happiness score from 2015 to 2019**\
+\
+![average happiness score from 2015 to 2019](figures/scatter_pre.png)\
+\
+
+**Average happiness score from 2020 to 2022**\
+\
+![average happiness score from 2020 to 2022](figures/scatter_post.png) \newpage
+
+**Changes in prevalence of depression from 2015 to 2019**\
+\
+![changes in prevalence of depression from 2015 to 2019](figures/scatter_depression.png)
