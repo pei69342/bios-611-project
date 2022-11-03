@@ -37,3 +37,12 @@ output: pdf_document
 **Changes in prevalence of depression from 2015 to 2019**\
 \
 ![changes in prevalence of depression from 2015 to 2019](figures/scatter_depression.png)
+\newpage
+
+**Correlation (2015 WHR data)**\
+\
+![Scatterplots of pairs of factors with significant correlation in 2015](figures/corr_scatter15.jpeg)
+\newpage
+**Correlation (2022 WHR data)**\
+\
+![Scatterplots of pairs of factors with significant correlation in 2022](figures/corr_scatter22.jpeg)

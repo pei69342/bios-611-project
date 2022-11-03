@@ -122,6 +122,14 @@ figures/scatter_pre.png figures/scatter_post.png: .created-dirs\
   vis_scatter_change.R derived_data/whr_change.csv
 	Rscript vis_scatter_change.R
 
+figures/corr_cs15.jpeg figures/corr_scatter15.jpeg: .created-dirs vis_corr15.R\
+  derived_data/whr15_2.csv
+	Rscript vis_corr15.R
+
+figures/corr_cs22.jpeg figures/corr_scatter22.jpeg: .created-dirs vis_corr22.R\
+  derived_data/whr22_2.csv
+	Rscript vis_corr22.R
+
 # Build the final report for the project.
 BIOS611Project_Shih.pdf: figures/bar_yr1516.png\
   figures/bar_yr1718.png\
@@ -130,5 +138,7 @@ BIOS611Project_Shih.pdf: figures/bar_yr1516.png\
   figures/scatter_depression.png\
   figures/hist_yr1522.png\
   figures/scatter_pre.png\
-  figures/scatter_post.png
+  figures/scatter_post.png\
+  figures/corr_scatter15.jpeg\
+  figures/corr_scatter22.jpeg
 	Rscript -e 'rmarkdown::render("BIOS611Project_Shih.Rmd")'
