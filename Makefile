@@ -103,8 +103,24 @@ figures/bar_yr1516.png\
   derived_data/whr22_2.csv
 	Rscript vis_barplot.R
 
-figures/scatter_depression.png: .created-dirs vis_depression.R\
-  derived_data/depression_2.csv
+figures/corr_cs15.jpeg figures/corr_scatter15.jpeg: .created-dirs vis_corr15.R\
+  derived_data/whr15_2.csv
+	Rscript vis_corr15.R
+
+figures/corr_cs22.jpeg figures/corr_scatter22.jpeg: .created-dirs vis_corr22.R\
+  derived_data/whr22_2.csv
+	Rscript vis_corr22.R
+
+figures/scatter_anxiety.png figures/scatter_anxiety_color.png: .created-dirs vis_anxiety.R\
+  derived_data/anxiety_2.csv\
+  derived_data/whr15_2.csv\
+  derived_data/whr19_2.csv
+	Rscript vis_anxiety.R
+
+figures/scatter_depression.png figures/scatter_depression_color.png: .created-dirs vis_depression.R\
+  derived_data/depression_2.csv\
+  derived_data/whr15_2.csv\
+  derived_data/whr19_2.csv
 	Rscript vis_depression.R
 
 figures/hist_yr1522.png: .created-dirs vis_histogram.R\
@@ -122,23 +138,33 @@ figures/scatter_pre.png figures/scatter_post.png: .created-dirs\
   vis_scatter_change.R derived_data/whr_change.csv
 	Rscript vis_scatter_change.R
 
-figures/corr_cs15.jpeg figures/corr_scatter15.jpeg: .created-dirs vis_corr15.R\
-  derived_data/whr15_2.csv
-	Rscript vis_corr15.R
-
-figures/corr_cs22.jpeg figures/corr_scatter22.jpeg: .created-dirs vis_corr22.R\
-  derived_data/whr22_2.csv
-	Rscript vis_corr22.R
+figures/selected_countries_happiness.png\
+ figures/selected_countries_gdp.png\
+ figures/selected_countries_soc.png\
+ figures/selected_countries_free.png\
+ figures/selected_countries_corrupt.png\
+ figures/selected_countries_conf.png: .created-dirs\
+  vis_selected_countries.R\
+    derived_data/whr15_2.csv\
+  derived_data/whr16_2.csv\
+  derived_data/whr17_2.csv\
+  derived_data/whr18_2.csv\
+  derived_data/whr19_2.csv\
+  derived_data/whr20_2.csv\
+  derived_data/whr21_2.csv\
+  derived_data/whr22_2.csv\
+  derived_data/comb0821_2.csv
+	Rscript vis_selected_countries.R
 
 # Build the final report for the project.
-BIOS611Project_Shih.pdf: figures/bar_yr1516.png\
-  figures/bar_yr1718.png\
+BIOS611Project_Shih.pdf: figures/corr_cs15.jpeg\
+  figures/corr_scatter15.jpeg\
+  figures/corr_cs22.jpeg\
+  figures/corr_scatter22.jpeg\
   figures/bar_yr1920.png\
   figures/bar_yr2122.png\
-  figures/scatter_depression.png\
-  figures/hist_yr1522.png\
-  figures/scatter_pre.png\
-  figures/scatter_post.png\
-  figures/corr_scatter15.jpeg\
-  figures/corr_scatter22.jpeg
+  figures/scatter_depression_color.png\
+  figures/scatter_anxiety_color.png\
+  figures/selected_countries_happiness.png\
+  figures/selected_countries_free.png
 	Rscript -e 'rmarkdown::render("BIOS611Project_Shih.Rmd")'
