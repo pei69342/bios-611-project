@@ -1,4 +1,3 @@
-setwd("~/work")
 library(tidyverse)
 
 # read in csv files from derived data folder
@@ -10,7 +9,6 @@ for(x in c(1:length(keep_files))){
          read.csv(file=paste0("derived_data/",keep_files[x])))
 }
 
-# pre-COVID average happiness scores (2015-2019)
 colnames(whr15_2)[!str_detect(colnames(whr15_2),"country")] <- paste0(names(whr15_2)[!str_detect(colnames(whr15_2),"country")],"15");
 colnames(whr16_2)[!str_detect(colnames(whr16_2),"country")] <- paste0(names(whr16_2)[!str_detect(colnames(whr16_2),"country")],"16");
 colnames(whr17_2)[!str_detect(colnames(whr17_2),"country")] <- paste0(names(whr17_2)[!str_detect(colnames(whr17_2),"country")],"17");
@@ -20,6 +18,7 @@ colnames(whr20_2)[!str_detect(colnames(whr20_2),"country")] <- paste0(names(whr2
 colnames(whr21_2)[!str_detect(colnames(whr21_2),"country")] <- paste0(names(whr21_2)[!str_detect(colnames(whr21_2),"country")],"21");
 colnames(whr22_2)[!str_detect(colnames(whr22_2),"country")] <- paste0(names(whr22_2)[!str_detect(colnames(whr22_2),"country")],"22");
 
+# pre-COVID average happiness scores (2015-2019)
 whr1519_avg <- whr15_2 %>% left_join(whr16_2, by = "country") %>%
   left_join(whr17_2, by = "country") %>%
   left_join(whr18_2, by = "country") %>%

@@ -1,5 +1,3 @@
-setwd("~/work")
-
 # importing COVID 19 mortality data
 mortality_raw <- rio::import(file = "https://happiness-report.s3.amazonaws.com/2021/MortalityDataWHR2021C2.xlsx",
                              which = "Sheet1");

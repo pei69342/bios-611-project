@@ -1,5 +1,3 @@
-setwd("~/work")
-
 library(tidyverse)
 library(ggplot2)
 library(ggcorrplot)
@@ -78,6 +76,6 @@ corr_fg2 <- annotate_figure(ggarrange(p0, p0, p0, p0, p15,
 
 # save figures
 ggsave("corr_cs22.jpeg", corr_fg1, path = "figures",
-       width = 7, height = 4.5, dpi = 600)
+       width = 8, height = 4.5, dpi = 600, bg = "white")
 ggsave("corr_scatter22.jpeg", corr_fg2, path = "figures",
-       width = 7, height = 7, dpi = 600)
+       width = 7, height = 7, dpi = 600, bg = "white")

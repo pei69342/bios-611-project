@@ -1,4 +1,3 @@
-setwd("~/work")
 library(tidyverse)
 
 # read in csv file from derived data folder

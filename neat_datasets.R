@@ -1,5 +1,3 @@
-setwd("~/work")
-
 # read in all csv files from retrieved data folder
 all_csv_files = list.files(path="retrieved_data",pattern="*.csv")
 for(x in c(1:length(all_csv_files))){

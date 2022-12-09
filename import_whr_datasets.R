@@ -1,5 +1,3 @@
-setwd("~/work")
-
 library(openxlsx)
 # specifying the path name and the sheet name
 p15 <- "https://s3.amazonaws.com/happiness-report/2015/Chapter2OnlineData_Expanded-with-Trust-and-Governance.xlsx";
@@ -52,6 +50,6 @@ for(y in c(15:22)){
 }
 write.csv(comb0821_raw, "retrieved_data/comb0821_raw.csv", row.names=FALSE)
 
-# clear some variables
+# clear variables
 rm(list=c(paste0("p",c(15:22)), paste0("s",c(15:22)),
           "x","y","char"))
