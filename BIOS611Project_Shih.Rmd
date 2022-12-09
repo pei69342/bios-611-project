@@ -1,48 +1,114 @@
 ---
-title: "BIOS611Project_Shih"
+title: "BIOS 611 Project on World Happiness Report"
 author: "Pei Yu Shih"
-date: '2022-10-29'
+date: '2022-12-08'
 output: pdf_document
 ---
 
-**Bar plots of happiness scores in selected countries in 2015 and 2016**\
-\
-![bar plots of happiness scores in selected countries in 2015 and 2016](figures/bar_yr1516.png) \newpage
-
-**Bar plots of happiness scores in selected countries in 2017 and 2018**\
-\
-![bar plots of happiness scores in selected countries in 2017 and 2018](figures/bar_yr1718.png) \newpage
-
-**Bar plots of happiness scores in selected countries in 2019 and 2020**\
-\
-![bar plots of happiness scores in selected countries in 2019 and 2020](figures/bar_yr1920.png) \newpage
-
-**Bar plots of happiness scores in selected countries in 2021 and 2022**\
-\
-![bar plots of happiness scores in selected countries in 2021 and 2022](figures/bar_yr2122.png) \newpage
-
-**Histogram of world happiness scores from 2015 to 2022**\
-\
-![histogram of world happiness scores from 2015 to 2022](figures/hist_yr1522.png) \newpage
-
-**Average happiness score from 2015 to 2019**\
-\
-![average happiness score from 2015 to 2019](figures/scatter_pre.png)\
+#### Introduction
 \
 
-**Average happiness score from 2020 to 2022**\
-\
-![average happiness score from 2020 to 2022](figures/scatter_post.png) \newpage
+This project uses the World Happiness data from 2015 to 2022 published on <https://worldhappiness.report/>. The World Happiness Report consolidates data from various sources in order to assess the happiness scores for each country or region. Some example sources include the Gallup World Poll, World Development Indicators, and World Health Organization. There are seven factors that explain the happiness scores as listed below. Dystopia represents the hypothetically worst country and has a happiness score predicted by the other six factors from all countries assessed in the report.
 
-**Changes in prevalence of depression from 2015 to 2019**\
+**Factors explaining the happiness scores:**
+
+-   GDP per capita
+-   Social support
+-   Healthy life expectancy
+-   Freedom to make life choices
+-   Generosity
+-   Perceptions of corruption
+-   Dystopia
+
+For the mental health data, the prevalence of depressive disorders and anxiety disorders from 2015 to 2019 was downloaded from the Global Health Data Exchange database (<https://vizhub.healthdata.org/gbd-results/>).
+
+#### Data Cleaning
 \
-![changes in prevalence of depression from 2015 to 2019](figures/scatter_depression.png)
+
+Since there are several data sets, it is useful to first clean up and standardize the data to compare the value more easily.
+
+1.  Standardize the column names across all data sets.
+2.  Standardize country names.
+    -   One example is that "United States of America" is used in some data sets, while "United States" is used in others. Another example is some country names have an extra '\*'. These discrepancies would cause non-matching problems when merging the data sets.
+3.  Keep only the countries that have a record in all data sets from 2015 to 2022.
+
 \newpage
 
-**Correlation (2015 WHR data)**\
+#### Correlation Between the Happiness Score Factors
 \
-![Scatterplots of pairs of factors with significant correlation in 2015](figures/corr_scatter15.jpeg)
+
+From Figure 1 and Figure 2, we can see that GDP, social support, healthy life expectancy, freedom to make life choices, and perceptions of corruption have a higher pairwise correlation than other factors. This means that if the amount of happiness score explained by one of these factors, say GDP, increases/decreases, then that amount explained by another component also increases/decreases.
+
+![Pairwise correlation of the 7 factors of happiness score in 2015](figures/corr_cs15.jpeg){alt="Pairwise correlation of the 7 conponents of happiness score in 2015" width="4.5in"}
+
+In 2022, the pairwise correlation between GDP, social support, and healthy life expectancy has increased.
+
+From the scatter plots, the relationship between GDP per capita and social support seems pretty linear, and so does the relationship between GDP and healthy life expectancy.
+
+![Pairwise correlation of the 7 factors of happiness score in 2022](figures/corr_cs22.jpeg){alt="Pairwise correlation of the 7 conponents of happiness score in 2022" width="4.5in"}
+
 \newpage
-**Correlation (2022 WHR data)**\
+
+![Scatter plots of pairs of factors with significant correlation in 2015](figures/corr_scatter15.jpeg){alt="Scatterplots of pairs of factors with significant correlation in 2015" width="5.5in"}
+
+\newpage
+
+![Scatter plots of pairs of factors with significant correlation in 2022](figures/corr_scatter22.jpeg){alt="Scatterplots of pairs of factors with significant correlation in 2022" width="5.5in"}
+
+\newpage
+
+#### Amount of Happiness Score Explained by the Factors
 \
-![Scatterplots of pairs of factors with significant correlation in 2022](figures/corr_scatter22.jpeg)
+
+The following figures depict the amount of happiness score explained by the 7 factors for the top 10 countries and the bottom 10 countries. Data from 2019 to 2022 are presented to assess the pre-COVID and post-COVID changes. Comparing the bar plots on the left with the plots on the right, it is quite obvious that the variation between the factors is lower for the Top 10 group than for the Bottom 10 group. Moreover, the Bottom 10 countries tend to have a lower happiness score than the predicted score since the amount of dystopia + residual is lower than the baseline value.
+
+![Bar plots of happiness scores in selected countries in 2015 and 2016](figures/bar_yr1920.png){width="6in"}
+
+\newpage
+
+Comparing Figure 5 to Figure 6, from 2019 to 2020, a large amount of happiness score is explained by social support (i.e., the green bars have a larger area than the pink bars). However, from 2021 to 2022, GDP per capita explains a larger proportion of the happiness score than social support (i.e., the pink bars have a larger area than the green bars).
+
+![Bar plots of happiness scores in selected countries in 2021 and 2022](figures/bar_yr2122.png){width="6in"}
+
+\newpage
+
+#### Compare Mental Health Data with World Happiness Scores
+\
+
+The following two scatter plots are presented with a slight offset of 5 units to distinguish between the group of countries with an increase in their happiness scores from 2015 to 2019 and the group with no increase (or a decrease) in their happiness scores. The countries with the highest and the lowest prevalence are labeled.\
+
+![Changes in prevalence of depressive disorders from 2015 to 2019](figures/scatter_depression_color.png){width="5in"}
+
+In Figure 7, about 33% of the countries with a decrease in the prevalence of depressive disorders have an increased happiness score. About 58% of the countries with an increase in the prevalence of depressive disorders also have an increased happiness score.
+
+In Figure 8, about 56% of the countries with a decrease in the prevalence of anxiety disorders have an increased happiness score. About 53% of the countries with an increase in the prevalence of anxiety disorders also have an increased happiness score.
+
+Hence, the changes in the happiness score do not seem to have an obvious relationship with the changes in the prevalence of depressive disorders, which is different from what I expected to see.
+
+![Changes in prevalence of anxiety disorders from 2015 to 2019](figures/scatter_anxiety_color.png){width="5in"}
+
+\newpage
+
+#### Other Explorations with Selected Regions
+\
+
+Since I am from Taiwan, geographically close to Hong Kong, I often hear about the news in terms of some political unrest in Hong Kong in the past few years. Without going into too much detail and becoming too political, I would just mention that the overall sentiment I get from the news is that people in Hong Kong seem to have less freedom as compared to how it was a couple of years ago.
+
+When I was reading the statistical appendix from the World Happiness Report which explains how each of the seven factors was quantified, I learned that they asked this question to assess the score for freedom to make life choices: Are you satisfied or dissatisfied with your freedom to choose what you do with your life? And this was a 0 or 1 binary response. I was intrigued by the question they asked and wanted to see how the response to this question changes over time for Hong Kong. In addtion to the freedom scores, I also plotted the happiness scores for China, Japan, South Korea, and Taiwan just for personal interests.
+
+![Line graph of changes in happiness scores from 2015 to 2022 in selected regions in East Asia](figures/selected_countries_happiness.png){width="6in"}
+
+\newpage
+
+Indeed, as depicted in Figure 10, the average score for the freedom to make life choices has been decreasing for Hong Kong. There was no data for the year of 2022, so as of 2021, Hong Kong has the lowest freedom score among the five.
+
+![Line graph of changes in freedom scores from 2015 to 2022 in selected regions in East Asia](figures/selected_countries_free.png){width="6in"}
+
+\
+\
+\
+
+#### Conclusion
+\
+
+The World Happiness Score takes into account GDP per capita, social support, healthy life expectancy, freedom to make life choices, generosity, perceptions of corruption, and dystopia. Factors such as GDP and healthy life expectancy consider the national level instead of the individual level. Therefore, the happiness score is a more complex index than just a personal feeling of happiness. In addition, some of the World Happiness data are interpolated and/or extrapolated based on available data according to the information in the statistical appendix of the World Happiness Report (<https://happiness-report.s3.amazonaws.com/2022/Appendix_1_StatiscalAppendix_Ch2.pdf>). Hence, it could be hard to detect the relationship between the factors as some are not collected directly from a data source. I think this is why we do not see a clear trend between the changes in the prevalence of mental health disorders and the changes in happiness scores.
