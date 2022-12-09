@@ -18,7 +18,7 @@ clean:
 	mkdir -p retrieved_data
 	touch .created-dirs
 
-# Add comments later
+# Retrieve data from url links
 retrieved_data/whr15_raw.csv\
  retrieved_data/whr16_raw.csv\
  retrieved_data/whr17_raw.csv\
@@ -35,7 +35,7 @@ retrieved_data/mortality_raw.csv\
   import_others.R source_data/IHME-GBD_2019_DATA.csv
 	Rscript import_others.R
 
-# Add comments later
+# Clean up data and output to derived_data folder
 derived_data/whr15_1.csv\
  derived_data/whr16_1.csv\
  derived_data/whr17_1.csv\
@@ -84,7 +84,7 @@ derived_data/whr_change.csv: .created-dirs whrcovid_datasets.R\
   derived_data/whr22_2.csv
 	Rscript whrcovid_datasets.R
 
-# Comments for plots
+# Create bar plots
 figures/bar_yr1516.png\
  figures/bar_yr1718.png\
  figures/bar_yr1920.png\
@@ -103,6 +103,7 @@ figures/bar_yr1516.png\
   derived_data/whr22_2.csv
 	Rscript vis_barplot.R
 
+# Create pairwise correlation plots
 figures/corr_cs15.jpeg figures/corr_scatter15.jpeg: .created-dirs vis_corr15.R\
   derived_data/whr15_2.csv
 	Rscript vis_corr15.R
@@ -111,6 +112,7 @@ figures/corr_cs22.jpeg figures/corr_scatter22.jpeg: .created-dirs vis_corr22.R\
   derived_data/whr22_2.csv
 	Rscript vis_corr22.R
 
+# Create color-coded scatter plots
 figures/scatter_anxiety.png figures/scatter_anxiety_color.png: .created-dirs vis_anxiety.R\
   derived_data/anxiety_2.csv\
   derived_data/whr15_2.csv\
@@ -123,6 +125,7 @@ figures/scatter_depression.png figures/scatter_depression_color.png: .created-di
   derived_data/whr19_2.csv
 	Rscript vis_depression.R
 
+# Create histograms of distribution of happiness scores
 figures/hist_yr1522.png: .created-dirs vis_histogram.R\
   derived_data/whr15_2.csv\
   derived_data/whr16_2.csv\
@@ -134,10 +137,12 @@ figures/hist_yr1522.png: .created-dirs vis_histogram.R\
   derived_data/whr22_2.csv
 	Rscript vis_histogram.R
 
+# Create scatter plots of pre- and post- COVID happiness score changes
 figures/scatter_pre.png figures/scatter_post.png: .created-dirs\
   vis_scatter_change.R derived_data/whr_change.csv
 	Rscript vis_scatter_change.R
 
+# Explore WHR data in 5 countries in East Asia
 figures/selected_countries_happiness.png\
  figures/selected_countries_gdp.png\
  figures/selected_countries_soc.png\
